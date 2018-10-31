@@ -1,2 +1,0 @@
-# SDETestGit
-TODO: Delete this
