@@ -18,7 +18,7 @@ public class MitTestProjekt
     public static void main(String[] args)
     {
         Robot r = new Robot();
-        System.out.println("Min robot: " + r);
+        System.out.println("Min robot: " + r + "Eggplants");
     }
     
 }
