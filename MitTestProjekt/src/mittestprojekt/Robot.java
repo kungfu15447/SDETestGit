@@ -9,16 +9,7 @@ package mittestprojekt;
  *
  * @author Frederik Jensen
  */
-public class MitTestProjekt
+public class Robot
 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-        Robot r = new Robot();
-        System.out.println("Min robot: " + r);
-    }
     
 }
