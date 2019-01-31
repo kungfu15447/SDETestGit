@@ -6,7 +6,9 @@ package main;
  * and open the template in the editor.
  */
 import controller.AdressFXMLController;
+import controller.BirthdayStatisticsController;
 import controller.PersonEditDialogController;
+import controller.RootLayoutController;
 import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
@@ -87,15 +89,27 @@ public class MainApp extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("/view/RootLayout.fxml"));
+            loader.setLocation(MainApp.class
+                    .getResource("/view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+
+            // Give the controller access to the main app.
+            RootLayoutController controller = loader.getController();
+            controller.setMainApp(this);
+
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        // Try to load last opened person file.
+        File file = getPersonFilePath();
+        if (file != null) {
+            loadPersonDataFromFile(file);
         }
     }
 
@@ -255,6 +269,33 @@ public class MainApp extends Application {
             alert.setContentText("Could not save data to file:\n" + file.getPath());
 
             alert.showAndWait();
+        }
+    }
+
+    /**
+     * Opens a dialog to show birthday statistics.
+     */
+    public void showBirthdayStatistics() {
+        try {
+            // Load the fxml file and create a new stage for the popup.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("/view/BirthdayStatistics.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Birthday Statistics");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the persons into the controller.
+            BirthdayStatisticsController controller = loader.getController();
+            controller.setPersonData(personData);
+
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

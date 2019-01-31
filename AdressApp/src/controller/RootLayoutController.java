@@ -8,8 +8,6 @@ package controller;
 import javafx.event.ActionEvent;
 import java.io.File;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import main.MainApp;
 
@@ -107,6 +105,11 @@ public class RootLayoutController {
     @FXML
     private void handleExit(ActionEvent event) {
         System.exit(0);
+    }
+
+    @FXML
+    private void handleShowBirthdayStatistics(ActionEvent event) {
+        mainApp.showBirthdayStatistics();
     }
 
 }

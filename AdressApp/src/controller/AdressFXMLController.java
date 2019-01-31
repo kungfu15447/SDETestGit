@@ -54,7 +54,6 @@ public class AdressFXMLController {
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
-    @FXML
     private void initialize() {
         // Initialize the person table with the two columns.
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
