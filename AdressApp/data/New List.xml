@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons>
+    <person>
+        <birthday>1999-10-21</birthday>
+        <city>erereere</city>
+        <firstName>Kermit</firstName>
+        <lastName>The Frog</lastName>
+        <postalCode>6700</postalCode>
+        <street>asdasd</street>
+    </person>
+    <person>
+        <birthday>1999-05-21</birthday>
+        <city>ddaaaaad</city>
+        <firstName>Bobby</firstName>
+        <lastName>BillBoard</lastName>
+        <postalCode>4200</postalCode>
+        <street>aaaad</street>
+    </person>
+    <person>
+        <birthday>1999-10-21</birthday>
+        <city>some city</city>
+        <firstName>asdf</firstName>
+        <lastName>asdf</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-10-21</birthday>
+        <city>some city</city>
+        <firstName>asdasdad</firstName>
+        <lastName>asdasdasdsaasd</lastName>
+        <postalCode>1234</postalCode>
+        <street>somasde street</street>
+    </person>
+</persons>

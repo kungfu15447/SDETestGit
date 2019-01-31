@@ -6,8 +6,11 @@ package controller;
  * and open the template in the editor.
  */
 import bll.DateUtil;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
@@ -20,7 +23,7 @@ import model.Person;
  *
  * @author Frederik Jensen
  */
-public class AdressFXMLController {
+public class AdressFXMLController implements Initializable {
 
     @FXML
     private TableView<Person> personTable;
@@ -54,7 +57,8 @@ public class AdressFXMLController {
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
-    private void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         // Initialize the person table with the two columns.
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
