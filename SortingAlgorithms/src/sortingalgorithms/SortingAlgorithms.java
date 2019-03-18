@@ -7,6 +7,8 @@ package sortingalgorithms;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
@@ -20,36 +22,75 @@ public class SortingAlgorithms
      */
     public static void main(String[] args)
     {
-        // TODO code application logic here
-    }
-    
-    private static int[] bubbleSort(int[] numbers) {
+        MergeSorter mergesorter = new MergeSorter();
+        BubbleSorter bubblesorter = new BubbleSorter(); 
+        QuickSorter quicksorter = new QuickSorter();
+        InsertionSorter insertionsorter = new InsertionSorter();
         
-        Instant start = Instant.now();
+        StopWatch watch = new StopWatch();
         
-        //O(N)
-        for (int i = 1; i < numbers.length; i++)  
+        
+        for (int i = 1; i <= 4; i++)
         {
-            //O(N^2)
-            for (int j = 0; j < numbers.length - 1; j++)  
-            {
-                if (numbers[j] > numbers[j + 1]) {
-                    int temp = numbers[j]; //create temporary space
-                    
-                    //swap elements
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-                }
-            }
+            int[] mergeSortTest = generateRandomNumbers(i * 10000);
+            watch.start();
+            mergesorter.sort(mergeSortTest);
+            watch.stop();
+            System.out.println("The elapsed time for merge sorting was: " + watch.getElapsedTime() + " milliseconds");
+            watch.reset();
         }
         
-        Instant finish = Instant.now();
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("");
         
-        long elapsedTime = Duration.between(start, finish).toMillis();
+        for (int i = 1; i <= 4; i++) {
+            int[] bubbleSortTest = generateRandomNumbers(i*10000);
+            watch.start();
+            bubblesorter.sort(bubbleSortTest);
+            watch.stop();
+            System.out.println("The elapsed time for bubble sorting was: " + watch.getElapsedTime() + " milliseconds");
+            watch.reset();
+        }
         
-        System.out.println("Finished BubbleSort on " + numbers.length + " items in " + elapsedTime + " ms");
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("");
         
-        return numbers;
+        for (int i = 1; i <= 4; i++) {
+            int[] quickSortTester = generateRandomNumbers(i*10000);
+            watch.start();
+            quicksorter.sort(quickSortTester, 0, quickSortTester.length - 1);
+            watch.stop();
+            System.out.println("The elapsed time for quick sorting was: " + watch.getElapsedTime() + " milliseconds");
+            watch.reset();
+        }
+        
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("");
+        
+        for (int i = 1; i <= 4; i++) {
+            int[] insertionSortTester = generateRandomNumbers(i*10000);
+            watch.start();
+            insertionsorter.sort(insertionSortTester);
+            watch.stop();
+            System.out.println("The elapsed time for insertion sorting was: " + watch.getElapsedTime() + " milliseconds");
+            watch.reset();
+        }
     }
-    
+
+    private static int[] generateRandomNumbers(int size)
+    {
+        int[] randomNumbers = new int[size];
+        Random r = new Random();
+
+        for (int i = 0; i < randomNumbers.length; i++)
+        {
+            randomNumbers[i] = r.nextInt(size * 10);
+            //System.out.println(randomNumbers[i] + ",");
+        }
+        return randomNumbers;
+    }
+
 }
