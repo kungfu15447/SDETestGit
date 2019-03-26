@@ -7,6 +7,7 @@ package factorymethod;
 
 import factorymethod.factory.Weapon;
 import factorymethod.factory.WeaponSmith;
+import factorymethod.factory.WeaponSmith.WeaponType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +25,9 @@ public class Game
 
         WeaponSmith smith = new WeaponSmith();
         
-        Weapon staff = smith.create("staff", 45.3, 0);
-        Weapon sword = smith.create("sword", 0, 67.5);
-        Weapon mace = smith.create("mace", 24, 67.5);
+        Weapon staff = smith.create(WeaponType.staff, 45.3, 0);
+        Weapon sword = smith.create(WeaponType.sword, 0, 67.5);
+        Weapon mace = smith.create(WeaponType.mace, 24, 67.5);
        
         weapons.add(staff);
         weapons.add(sword);

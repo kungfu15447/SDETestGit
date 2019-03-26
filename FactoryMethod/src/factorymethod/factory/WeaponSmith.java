@@ -11,14 +11,18 @@ package factorymethod.factory;
  */
 public class WeaponSmith
 {
-    public Weapon create(String weaponType, double magicDmg, double physicalDmg) {
+    public enum WeaponType{
+        sword, mace, staff;
+    }
+    
+    public Weapon create(WeaponType weaponType, double magicDmg, double physicalDmg) {
         switch (weaponType)
         {
-            case "sword":
+            case sword:
                 return new Sword(magicDmg, physicalDmg);
-            case "mace":
+            case mace:
                 return new Mace(magicDmg, physicalDmg);
-            case "staff":
+            case staff:
                 return new Staff(magicDmg);
             default:
                 throw new AssertionError();
