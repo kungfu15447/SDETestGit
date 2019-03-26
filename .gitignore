@@ -59,3 +59,6 @@ hs_err_pid*
 /JavaCollections/build/
 /JavaCollections/dist/
 /FactoryMethod/nbproject/private/
+/Rental/nbproject/private/
+/Rental/build/
+/Rental/dist/
