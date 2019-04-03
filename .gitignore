@@ -64,3 +64,15 @@ hs_err_pid*
 /Rental/dist/
 /FactoryMethod/build/
 /FactoryMethod/dist/
+/FunWithSorting/nbproject/private/
+/FunWithSorting/build/
+/FunWithSorting/dist/
+/CustomerHash/nbproject/private/
+/CustomerHash/build/
+/CustomerHash/dist/
+/IteratorExample/nbproject/private/
+/IteratorExample/build/
+/IteratorExample/dist/
+/ObjectPoolGameExample/nbproject/private/
+/ObjectPoolGameExample/build/
+/ObjectPoolGameExample/dist/
