@@ -79,3 +79,6 @@ hs_err_pid*
 /SimpleSearching/nbproject/private/
 /SimpleSearching/build/
 /SimpleSearching/dist/
+/FlyWeightExample/nbproject/private/
+/FlyWeightExample/build/
+/FlyWeightExample/dist/
