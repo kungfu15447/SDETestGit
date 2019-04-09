@@ -6,6 +6,7 @@
 package flyweightproject;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ public class FXMLDocumentController implements Initializable
     private AnchorPane mainPane;
     Canvas canvas;
     GraphicsContext gc;
+    Random rand;
    
     
     @Override
@@ -37,12 +39,23 @@ public class FXMLDocumentController implements Initializable
         canvas = new Canvas(800, 560);
         mainPane.getChildren().add(canvas);
         gc = canvas.getGraphicsContext2D();
+        rand = new Random();
     }    
 
     @FXML
     private void handleSpawnMonsters(ActionEvent event)
     {
         MonsterFactory mf = new MonsterFactory();
+        
+        for (int i = 0; i < 1_000; i++) {
+            int locationX = rand.nextInt((int) canvas.getWidth());
+            int locationY = rand.nextInt((int) canvas.getHeight() - 40);
+            Monster monster = mf.getMonster("jagras");
+            monster.setName("Dingleberg");
+            monster.setSize(rand.nextInt(1500)+1000);
+            gc.drawImage(monster.getLook(), locationX, locationY);
+            
+        }
         
     }
     

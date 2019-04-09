@@ -33,10 +33,6 @@ public class MainController implements Initializable {
     @FXML
     private Button button1;
 
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-    }
-
     private int getRandSize(Random rand) {
         return (rand.nextInt(2) + 1) * 15;
     }
