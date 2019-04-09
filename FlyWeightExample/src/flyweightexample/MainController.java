@@ -60,7 +60,9 @@ public class MainController implements Initializable {
             int locationX = rand.nextInt((int) canvas.getWidth());
             int locationY = rand.nextInt((int) canvas.getHeight() - 40);
             Ladybug lb = fact.create(size);
-            gc.drawImage(lb.getImg(), locationX, locationY);
+            lb.setX(locationX);
+            lb.setY(locationY);
+            gc.drawImage(lb.getImg(), lb.getX(), lb.getY());
         }
         
         long end = System.nanoTime();
