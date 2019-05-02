@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="354.0" prefWidth="284.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="lommeregner.CalculatorController">
+   <children>
+      <TextField fx:id="txtHeight" layoutX="68.0" layoutY="65.0" />
+      <TextField fx:id="txtWidth" layoutX="68.0" layoutY="130.0" />
+      <TextField fx:id="txtLength" layoutX="68.0" layoutY="191.0" />
+      <TextField fx:id="txtVolume" layoutX="68.0" layoutY="250.0" />
+      <Button fx:id="btnCalculate" layoutX="105.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleCalculate" prefHeight="25.0" prefWidth="75.0" text="Calculate" />
+      <Label layoutX="68.0" layoutY="48.0" text="Højde:" />
+      <Label layoutX="68.0" layoutY="113.0" text="Bredde:" />
+      <Label layoutX="68.0" layoutY="177.0" text="Længde:" />
+      <Label layoutX="68.0" layoutY="233.0" text="Rumfang:" />
+   </children>
+</AnchorPane>
