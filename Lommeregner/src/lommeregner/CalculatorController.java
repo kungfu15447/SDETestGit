@@ -6,6 +6,7 @@
 package lommeregner;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -23,8 +25,8 @@ public class CalculatorController implements Initializable
 {
 
     private String figure = null;
-    private ArrayList<TextField> textfields;
-    private ArrayList<Double> numbers;
+    private ArrayList<TextField> textfields = new ArrayList<>();
+    private ArrayList<Double> numbers = new ArrayList<>();
     private Calculation calculator;
 
     @FXML
@@ -39,13 +41,23 @@ public class CalculatorController implements Initializable
     private Button btnCalculate;
     @FXML
     private ComboBox<String> comboFigures;
+    @FXML
+    private TextField txtALimit;
+    @FXML
+    private TextField txtBLimit;
+    @FXML
+    private TextField txtFunction;
+    @FXML
+    private Label lblResult;
+    @FXML
+    private Button btnCalculateFunction;
+    @FXML
+    private TextField txtNumberOfTrapezoids;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
         calculator = new Calculation();
-        textfields = new ArrayList<>();
-        numbers = new ArrayList<>();
         comboFigures.getItems().addAll("Cube", "Pyramide");
     }
 
@@ -178,6 +190,18 @@ public class CalculatorController implements Initializable
     private void comboSelectFigure(ActionEvent event)
     {
         figure = comboFigures.getValue();
+    }
+
+    @FXML
+    private void handleCalculateFunction(ActionEvent event) {
+        double a = Double.parseDouble(txtALimit.getText());
+        double b = Double.parseDouble(txtBLimit.getText());
+        String function = txtFunction.getText();
+        int n = Integer.parseInt(txtNumberOfTrapezoids.getText());
+        
+        double result = calculator.calculateFunctionVolume(a, b, function, n);
+        DecimalFormat df = new DecimalFormat("#.##");
+        lblResult.setText(df.format(result));
     }
 
 }
