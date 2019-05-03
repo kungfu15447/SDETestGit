@@ -86,3 +86,5 @@ hs_err_pid*
 /FlyWeightProject/dist/
 /FlyWeightProject/build/
 /Lommeregner/nbproject/private/
+/Lommeregner/build/
+/Lommeregner/dist/
